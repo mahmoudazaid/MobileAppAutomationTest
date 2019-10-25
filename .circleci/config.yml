@@ -40,12 +40,14 @@ jobs:
       - run:
           name: Run EspressoTests
           command: ./gradlew connectedAndroidTest
+          
+       -run: 
+            name:Creat Test-Results Directory
+            command: mkdir "app/build/test-results"
 
       - store_artifacts:
           path: app/build/reports
           destination: reports
       - store_test_results:
-          #path: app/build/test-results
-           path: test-results
-
-          #destination: test-results
+          path: app/build/test-results
+          destination: test-results
