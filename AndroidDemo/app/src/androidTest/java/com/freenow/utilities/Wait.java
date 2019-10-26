@@ -14,15 +14,15 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
-public class WaitResourceLoaded implements IdlingResource {
+public class Wait implements IdlingResource {
 
 
-    private static final String TAG = WaitResourceLoaded.class.getSimpleName();
+    private static final String TAG = Wait.class.getSimpleName();
 
     private final Matcher<View> viewMatcher;
     private ResourceCallback resourceCallback;
 
-    public WaitResourceLoaded(final Matcher<View> viewMatcher) {
+    public Wait(final Matcher<View> viewMatcher) {
         this.viewMatcher = viewMatcher;
     }
 
@@ -60,8 +60,8 @@ public class WaitResourceLoaded implements IdlingResource {
         }
     }
 
-    public void waitViewShown(Matcher<View> matcher) {
-        IdlingResource idlingResource = new WaitResourceLoaded(matcher);///
+    public static void waitUntilViewLoaded(Matcher<View> matcher) {
+        IdlingResource idlingResource = new Wait(matcher);
         try {
             IdlingRegistry.getInstance().register(idlingResource);
             onView(matcher).check(matches(isDisplayed()));
