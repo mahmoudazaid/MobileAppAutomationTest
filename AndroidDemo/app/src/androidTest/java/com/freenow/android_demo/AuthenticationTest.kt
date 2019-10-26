@@ -62,7 +62,7 @@ class AuthenticationTest {
         onView(withId(R.id.btn_login)).perform(click())
 
         //ًWait until the search bar has been displayed
-        Wait.waitUntilViewLoaded(withId(R.id.textSearch))
+        //Wait.waitUntilViewLoaded(withId(R.id.textSearch))
 
         //check if the search text box has been displayed
         onView(withId(R.id.textSearch)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
