@@ -33,6 +33,7 @@ public class HttpClient {
     private static final String RANDOM_USER_URL = "https://randomuser.me/api/";
     private final OkHttpClient mClient;
     private final JsonParser mJsonParser;
+    public static ArrayList<Driver> drivers;
 
     public HttpClient() {
         mClient = new OkHttpClient.Builder().readTimeout(SOCKET_TIMEOUT, TimeUnit.SECONDS).build();
@@ -88,7 +89,7 @@ public class HttpClient {
     private ArrayList<Driver> getDrivers(String jsonResponse) {
         JsonObject jsonObject = mJsonParser.parse(jsonResponse).getAsJsonObject();
         JsonArray results = jsonObject.getAsJsonArray("results");
-        ArrayList<Driver> drivers = new ArrayList<>();
+        drivers = new ArrayList<>();
         for (JsonElement jsonElement :results) {
             JsonObject jsonUser = jsonElement.getAsJsonObject();
             JsonObject name = jsonUser.getAsJsonObject("name");
