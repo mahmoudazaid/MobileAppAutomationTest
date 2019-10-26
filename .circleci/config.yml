@@ -27,7 +27,7 @@ jobs:
             # echo "Listing of /opt/android/sdk"
             # ls /opt/android/sdk
             set -e
-            sdkmanager "system-images;android-21;default;armeabi-v7a"
+            sdkmanager "system-images;android-25;default;armeabi-v7a"
             echo "no" | avdmanager create avd -n test -k "system-images;android-25;default;armeabi-v7a"
       - run:
           name: Launch emulator
