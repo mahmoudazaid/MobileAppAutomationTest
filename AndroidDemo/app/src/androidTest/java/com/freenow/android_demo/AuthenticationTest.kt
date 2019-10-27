@@ -37,20 +37,18 @@ class AuthenticationTest {
 
     //region create rules for Activities
     @get:Rule
-    var activityRule = ActivityTestRule(AuthenticationActivity::class.java)
+    var mainActivityRule = ActivityTestRule(MainActivity::class.java)
 
     @get:Rule
-    var mainActivityRule = ActivityTestRule(MainActivity::class.java)
+    var activityRule = ActivityTestRule(AuthenticationActivity::class.java)
+
     //endregion
 
     @Before
     fun login() {
         // Initialize UiDevice instance
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-    }
 
-    @Test
-    fun searchDriver() {
         //Check if the username text field has been displayed
         onView(withId(R.id.edt_username)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         //Enter Username
@@ -63,13 +61,18 @@ class AuthenticationTest {
         onView(withId(R.id.btn_login)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         //Click on Login
         onView(withId(R.id.btn_login)).perform(click())
+        Thread.sleep(10000)
 
         //ًWait until the search bar has been displayed
         Wait.waitUntilViewLoaded(withId(R.id.textSearch))
 
         //check if the search text box has been displayed
         onView(withId(R.id.textSearch)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-        
+    }
+
+    @Test
+    fun searchDriver() {
+        Thread.sleep(5000)
         //Type the driver name in search text box
         onView(withId(R.id.textSearch)).perform(typeText(searchText));
 
