@@ -1,68 +1,31 @@
-#DISCLAMER - some parts of this code are copy-pasted in the attempts to make it work! Even though they
-#are not my own, I took time to understand how and why it works!
-
 version: 2
 jobs:
   build:
-    working_directory: ~/MobileAppAutomationTest/AndroidDemo
+    working_directory: ~/code
     docker:
-      #- image: circleci/android@sha256:5cdc8626cc6f13efe5ed982cdcdb432b0472f8740fed8743a6461e025ad6cdfc
-      - image: google/android:api-25
+      - image: circleci/android:api-25-alpha
     environment:
-      JVM_OPTS: -Xmx3200m      
+      JVM_OPTS: -Xmx3200m
     steps:
-      - checkout:
-          path: ~/MobileAppAutomationTest
-      - run:
-          name: Store Google Service Account
-            command: echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
+      - checkout
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+#      - run:
+#         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+#         command: sudo chmod +x ./gradlew
       - run:
           name: Download Dependencies
-          command: |
-            yes | sdkmanager --licenses || exit 0
-            yes | sdkmanager --update || exit 0
-            ./gradlew androidDependencies
-      - run: |
-          echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
-          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-          gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Lists installed targets
-          command: android list target
-          environment:
-          TERM: dumb
-      - run:
-          name: Show list of system-images
-          command: sdkmanager --list --verbose | grep system-images 
-      - run:
-          name: Setup Android emulator
-          command: |
-            # echo "Listing of /opt/android/sdk"
-            # ls /opt/android/sdk
-            set -e
-            sdkmanager "system-images;android-22;default;armeabi-v7a"
-            echo "no" | avdmanager create avd -n test -k "system-images;android-22;default;armeabi-v7a"
-      - run:
-          name: Launch emulator
-          command: export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib && emulator64-arm -avd test -noaudio -no-boot-anim -no-window -accel on
-          background: true
-
-      - run:
-          name: Wait for emulator
-          command: circle-android wait-for-boot
-
-      - run:
-          name: Run EspressoTests
-          command: ./gradlew connectedAndroidTest
-       
-      - store_artifacts:
+          name: Run Tests
+          command: ./gradlew lint test
+      - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
           path: app/build/reports
           destination: reports
-      
-      - store_test_results:
-          path: app/build/reports
-          destination: reports
-          #path: app/build/test-results
-          #destination: test-results
+      - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: app/build/test-results
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
