@@ -60,7 +60,7 @@ class AuthenticationTest {
         onView(withId(R.id.btn_login)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         //Click on Login
         onView(withId(R.id.btn_login)).perform(click())
-        Thread.sleep(5000)
+        Thread.sleep(10000)
 
         //ًWait until the search bar has been displayed
         Wait.waitUntilViewLoaded(withId(R.id.textSearch))
