@@ -7,12 +7,15 @@ jobs:
     working_directory: ~/MobileAppAutomationTest/AndroidDemo
     docker:
       #- image: circleci/android@sha256:5cdc8626cc6f13efe5ed982cdcdb432b0472f8740fed8743a6461e025ad6cdfc
-      - image: circleci/android:api-26-alpha
+      - image: google/android:api-25
     environment:
-      JVM_OPTS: -Xmx3200m
+      JVM_OPTS: -Xmx3200m      
     steps:
       - checkout:
           path: ~/MobileAppAutomationTest
+      - run:
+          name: Store Google Service Account
+            command: echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
@@ -21,6 +24,10 @@ jobs:
             yes | sdkmanager --licenses || exit 0
             yes | sdkmanager --update || exit 0
             ./gradlew androidDependencies
+      - run: |
+          echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
       - run:
           name: Lists installed targets
           command: android list target
