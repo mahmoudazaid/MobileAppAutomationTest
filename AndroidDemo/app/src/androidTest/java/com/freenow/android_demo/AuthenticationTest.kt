@@ -60,6 +60,7 @@ class AuthenticationTest {
         //Check if th the login has been displayed
         onView(withId(R.id.btn_login)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         //Click on Login
+        Thread.sleep(5000)
         onView(withId(R.id.btn_login)).perform(click())
         Thread.sleep(10000)
 
