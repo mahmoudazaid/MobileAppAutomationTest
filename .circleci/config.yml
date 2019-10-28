@@ -34,6 +34,10 @@ jobs:
             yes | sdkmanager --update || exit 0
             ./gradlew androidDependencies
        
+       - run:
+          name: Assemble APKs
+          command: ./gradlew assembleAndroidTest assemble
+          
        - store_artifacts:
           path: app/build/reports
           destination: reports
