@@ -33,3 +33,8 @@ jobs:
             yes | sdkmanager --licenses || exit 0
             yes | sdkmanager --update || exit 0
             ./gradlew androidDependencies
+         
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
