@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "freenow-257208",
+  "private_key_id": "851ae6d582bd956aaab60097b538eec2e478ce14",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCt8H3FAMMa0eGw\nPDxFZ+tNRETSLIAB0eLryiHvZz0rARdlEZQ6+KXNLCUnYCIKo+BXxKgNgnaYTUKp\nhWqmOKWXEh8Aaieg9eUv4waHc6U4V1SQH3lwrVVoq5Z7FnhaHPGfuNZIGNhoRZeU\n/f27ZnhroZ4/h49J06v6MgrenJyC1/nZBsRigDR5lmBAax3eBEOq6F7tnha0agD2\nIaJ2Up2UzP31OiG8o1AS2LrEFAKyI4o2OjwlOSSctojZl0ptnVzbKBaJa/7Axv1B\nnacTnU/Te15hDZ3qgNxfDQod9bnmt1Q5NFZ5n6slCwguACZj49QgukTBN/UWuvhX\nI2uPwN9dAgMBAAECggEACWWPHdfzMl05UJCIfwVksFlqUGJoDfEdTbivSaQtqUeX\nUHX5KJBrQKDMZwqp/CIrSgKNQ6GTL5oo6kiTYOR5iaZId3jEqEzwczxUC3hDaj5J\nirmwkVZD4XI3oHGv0cpzgTn2lZGGC2gLDtkD3p5kDgh+qJb1tjrRtSQD80/JosXa\nY/TCfHFIJxCZLhpAnIhrMwqt2rtyuezZJvW3+r1PacxH7VzZKzDjVS7qEmjIUlrl\neRnmcjtiZuQZMMJscbTR2i4N/jZtxs6FUQqFuGFO1lnnu+6/N3KUgqsmpL/GhhJW\nJ2alaMx9HMy12JW7gFo4cqH35yRc/cRfGauRQpvDXwKBgQDVPfkHS9m7wBCvLmr4\nZeMGaZK17wA+Yx6x1bPYTJcuvViwHAdCyK0sE8nsvWt3ky2qvwTNV4tzsfnd6P8w\nvaucHU0fx54lS/lF8iT3R4ut3LEHx1vQtc+XlAD9GUaobG0aNag4CsID+xXI4L2b\n9uQnRQC+S2DCXodHEbgSuxKDpwKBgQDQ0Q42edXAwLLURNYxfNPa2XB+RJ+MFHFx\n63lTsT/HQ6V9/nPfNAVJe17USxIOvo9/8wrODqhnLk6coit7U86k3hxQ8I5BxuwA\n4KNBkszj0szvZSEbLIlb10FRZBkDY5iN1e/FP1T27tMJMgfuKn9GHzFC/ZzD3WCR\natNdTRG1WwKBgQCnKLOEQrNl+EOb77kvCz+SEUROlhIM1cqEAU+/6RpCK2/QbchL\nU+BcQw7xI/OQgrEzvhXXmh7ZDNUgXbtdy/Ewqc+BcAvKlOnNKOpNZapbGjs0K9UP\noNYgroav4RaAhK5p81HwzI4WbMdA9tvr3PgwyGiyw4gQFeXZkkxHcpoq1QKBgGFR\nPM14pHzrkaxJ1IVFxrpU4g+GzdCL6n8MHgQ6NB4a0bLRdpEMfnZLj9tijSzf9KLN\n0zhLLoK/2xU2owsb+M9vUEUMh0/ydCTIjG1QDDsVEDt1pyMx82YhAKj8/IdO0Fcx\n4EfOBzv5+9JqRbXiimRUvzGYXooNzyaWYaE2/MzHAoGAbAuOHUzcM4sz9QmNwvOS\narMTR5m3Bk3UywEIj9huGZulG+wDGEwuqoDCGhpA83GcI3di8N8fkp9vOCJRTUHo\nSXTY9hKygH8fubzhErOUBounTGpH4cLOF3lKF6bexAonHXSh6IjjH2mhNcX6NIV5\niaoIdsB1vefiecES0L6dDuw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "freenowespresso@freenow-257208.iam.gserviceaccount.com",
+  "client_id": "108380515266552026360",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/freenowespresso%40freenow-257208.iam.gserviceaccount.com"
+}
