@@ -38,7 +38,7 @@ class AuthenticationTest {
     //region create rules for Activities
     @get:Rule
     var mainActivityRule = ActivityTestRule(MainActivity::class.java)
-
+//
 //    @get:Rule
 //    var activityRule = ActivityTestRule(AuthenticationActivity::class.java)
 
@@ -48,7 +48,7 @@ class AuthenticationTest {
     fun login() {
         // Initialize UiDevice instance
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-        
+
         //Check if the username text field has been displayed
         onView(withId(R.id.edt_username)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         //Enter Username
@@ -60,9 +60,8 @@ class AuthenticationTest {
         //Check if th the login has been displayed
         onView(withId(R.id.btn_login)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         //Click on Login
-//        Thread.sleep(5000)
         onView(withId(R.id.btn_login)).perform(click())
-        Thread.sleep(10000)
+        Thread.sleep(5000)
 
         //ًWait until the search bar has been displayed
         Wait.waitUntilViewLoaded(withId(R.id.textSearch))
@@ -105,7 +104,7 @@ class AuthenticationTest {
         )
 
         //get the phone number
-        var phoneNumber = appItem.getText()
+        var phoneNumber = appItem.getText().replace("-","")
 
 
         //get the driver phone number
