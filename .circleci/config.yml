@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/MobileAppAutomationTest/AndroidDemo
     docker:
       #- image: circleci/android@sha256:5cdc8626cc6f13efe5ed982cdcdb432b0472f8740fed8743a6461e025ad6cdfc
-      - image: circleci/android@sha256:b004b71e951181d287440315a35124f9fa831c997ea5a4ee1fd375aa5ad04c2b
+      - image: circleci/android@sha256:417e98bd956920507575911f6db74bcb81dfe104d4f5aea79ca066db02dde6b7
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
