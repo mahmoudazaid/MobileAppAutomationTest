@@ -1,12 +1,10 @@
-#DISCLAMER - some parts of this code are copy-pasted in the attempts to make it work! Even though they
-#are not my own, I took time to understand how and why it works!
-
 version: 2
 jobs:
   build:
     working_directory: ~/MobileAppAutomationTest/AndroidDemo
     docker:
-      - image: circleci/android@sha256:5cdc8626cc6f13efe5ed982cdcdb432b0472f8740fed8743a6461e025ad6cdfc
+      #- image: circleci/android@sha256:5cdc8626cc6f13efe5ed982cdcdb432b0472f8740fed8743a6461e025ad6cdfc
+      - image: circleci/android@sha256:b004b71e951181d287440315a35124f9fa831c997ea5a4ee1fd375aa5ad04c2b
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
