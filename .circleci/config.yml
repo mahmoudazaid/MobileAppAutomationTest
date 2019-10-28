@@ -29,7 +29,6 @@ jobs:
           
        - run:
           name: Download Dependencies
-          command: 
           command: |
             yes | sdkmanager --licenses || exit 0
             yes | sdkmanager --update || exit 0
