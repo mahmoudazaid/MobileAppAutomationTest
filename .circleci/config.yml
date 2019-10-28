@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  test:
     docker:
       # specify the version you desire here
       - image: circleci/android:api-28-alpha
@@ -41,5 +41,6 @@ jobs:
        - run:
           name: Dump Google Cloud Credentials to file
           command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json        
+      
       - run: sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
           
