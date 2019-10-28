@@ -42,6 +42,8 @@ jobs:
           name: Dump Google Cloud Credentials to file
           command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json        
       
-      - run:
-      name: Activate servce account
-      command: sudo gcloud auth activate-service-account --key-file=${HOME}/gcp-key.json          
+       - run:
+          name: Authorize gcloud and set config defaults
+          command: |
+            sudo gcloud auth activate-service-account --key-file=${HOME}/gcp-key.json
+            sudo gcloud --quiet config set project ${GOOGLE_PROJECT_ID}            
