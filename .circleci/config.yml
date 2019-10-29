@@ -48,7 +48,7 @@ jobs:
             sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
             sudo gcloud --quiet config set project ${PROJECT_ID}            
             sudo gcloud auth list
-            sudo gcloud config set account ${ACOOUNT}
+            sudo gcloud config set account `ACCOUNT`
         
        - run:
           name: Configure environment
