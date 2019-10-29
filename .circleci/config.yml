@@ -49,7 +49,7 @@ jobs:
             sudo gcloud auth list
             sudo gcloud auth list --filter=status:ACTIVE --format="value(account)"
             sudo gcloud config list account --format "value(core.account)"
-            sudo gcloud config set account ${ACCOUNT}
+            sudo gcloud config set account '${ACCOUNT}'
             sudo gcloud --quiet config set project ${PROJECT_ID}                       
         
        - run:
