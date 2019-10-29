@@ -56,10 +56,7 @@ jobs:
             
        - run:
           name: Run UI Tests
-          command: |
-            sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
-            sudo gcloud --quiet config set project ${PROJECT_ID}
-            sudo gcloud firebase test android run --type instrumentation --app ${APK_PATH} --test ${TEST_APK_PATH} --device model=Nexus6P,version=27,locale=en,orientation=portrait --timeout 30m
+          command: sudo gcloud firebase test android run --type instrumentation --app ${APK_PATH} --test ${TEST_APK_PATH} --device model=Nexus6P,version=27,locale=en,orientation=portrait --timeout 30m
           no_output_timeout: 30m
               
        - store_artifacts:
