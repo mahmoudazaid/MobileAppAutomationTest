@@ -47,11 +47,12 @@ jobs:
           command: |
             sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
             sudo gcloud --quiet config set project ${PROJECT_ID}            
+            sudo gcloud auth list
+            gcloud config set account `ACCOUNT`
         
        - run:
           name: Configure environment
-          command: |
-            sudo gcloud auth list
+          command: |          
             echo 'export APK_PATH=`find . -path "*.apk" ! -path "*unaligned.apk" ! -path "*Test*.apk" -print -quit`' >> $BASH_ENV
             echo 'export TEST_APK_PATH=`find "." "-path" "*Test*.apk" -print -quit`' >> $BASH_ENV     
             
