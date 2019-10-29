@@ -46,12 +46,12 @@ jobs:
           name: Authorize gcloud and set config defaults
           command: |
             sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
-            sudo gcloud auth list
-            sudo gcloud auth list --filter=status:ACTIVE --format="value(account)"
-            sudo gcloud config list account --format "value(core.account)"
-            sudo gcloud config set account "${ACCOUNT}"
-            sudo gcloud config list
-            sudo gcloud info
+            echo sudo gcloud auth list
+            echo sudo gcloud auth list --filter=status:ACTIVE --format="value(account)"
+            echo sudo gcloud config list account --format "value(core.account)"
+            echo sudo gcloud config set account "${ACCOUNT}"
+            echo sudo gcloud config list
+            echo sudo gcloud info
             sudo gcloud --quiet config set project ${PROJECT_ID}                       
         
        - run:
