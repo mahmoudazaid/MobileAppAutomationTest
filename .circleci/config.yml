@@ -51,6 +51,7 @@ jobs:
        - run:
           name: Configure environment
           command: |
+            sudo gcloud config set account ACCOUNT ${GCLOUD_PASSWORD}
             echo 'export APK_PATH=`find . -path "*.apk" ! -path "*unaligned.apk" ! -path "*Test*.apk" -print -quit`' >> $BASH_ENV
             echo 'export TEST_APK_PATH=`find "." "-path" "*Test*.apk" -print -quit`' >> $BASH_ENV     
             
