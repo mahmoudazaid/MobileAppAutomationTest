@@ -36,11 +36,11 @@ class AuthenticationTest {
     //endregion
 
     //region create rules for Activities
-   // @get:Rule
-    //var mainActivityRule = ActivityTestRule(MainActivity::class.java)
+    @get:Rule
+    var mainActivityRule = ActivityTestRule(MainActivity::class.java)
 
-   @get:Rule
-    var activityRule = ActivityTestRule(AuthenticationActivity::class.java)
+   //@get:Rule
+    //var activityRule = ActivityTestRule(AuthenticationActivity::class.java)
 
     //endregion
 
