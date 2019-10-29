@@ -42,22 +42,23 @@ jobs:
           name: Dump Google Cloud Credentials to file
           command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json        
       
-       - run:
-          name: Authorize gcloud and set config defaults
-          command: |
-            sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
-            sudo gcloud --quiet config set project ${PROJECT_ID}            
-        
-       - run:
+      - run:
           name: Configure environment
           command: |
             echo 'export APK_PATH=`find . -path "*.apk" ! -path "*unaligned.apk" ! -path "*Test*.apk" -print -quit`' >> $BASH_ENV
             echo 'export TEST_APK_PATH=`find "." "-path" "*Test*.apk" -print -quit`' >> $BASH_ENV     
             
        - run:
+          name: Authorize gcloud and set config defaults
+          command: |
+            sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
+            sudo gcloud --quiet config set project ${PROJECT_ID}            
+        
+            
+       - run:
           name: Run UI Tests
           command: |
-            sudo gcloud config set account ${ACCOUNT}
+            sudo gcloud config set account ${HOME}/gcp-key.json
             gcloud firebase test android run --type instrumentation --app ${APK_PATH} --test ${TEST_APK_PATH} --device model=Nexus6P,version=27,locale=en,orientation=portrait --timeout 30m
           no_output_timeout: 30m
               
