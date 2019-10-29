@@ -65,7 +65,7 @@ jobs:
            
        - run:
             name: Download instrumented test results from Firebase Test Lab
-            command: gsutil -m cp -r -U "`gsutil ls gs://test-lab-9q58v89n1h4r4-y0dp6vv8jjn0q | tail -1`*" /root/workspace/test-results/
+            command: gsutil -m cp -r -U "`gsutil ls Buckets://test-lab-9q58v89n1h4r4-y0dp6vv8jjn0q | tail -1`*" /root/workspace/test-results/
               
        - store_artifacts:
           path: app/build/reports
