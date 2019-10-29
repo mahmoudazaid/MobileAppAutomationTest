@@ -46,7 +46,6 @@ jobs:
           name: Authorize gcloud and set config defaults
           command: |
             sudo gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
-            sudo gcloud auth login --no-launch-browser
             sudo gcloud --quiet config set project ${PROJECT_ID}            
         
        - run:
